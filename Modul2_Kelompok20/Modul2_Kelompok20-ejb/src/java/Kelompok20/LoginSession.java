@@ -32,5 +32,32 @@ public class LoginSession implements LoginSessionLocal {
     public void setLoginStatus(boolean loginStatus) {
         this.loginStatus = loginStatus;
     }
+    
+    String [] nama = {"M Taqiyuddin", "Usman Ralih M", "M Ikhsan", "Jeremy K", "Dhyn"};
+    String [] nim = {"21120116140087", "21120116120000", "21120116120033", "21120116140078", "666"};
+    
+    private String checkNama(String param){
+        for (int i = 0; i < nama.length; i++){
+            if (param.equals(nama[i])){
+                return "Nama Praktikan : "+nama[i]+"("+nim[i]+")";
+            }
+        }
+        return null;
+    }
+    
+    private String checkNim (String param){
+        for (int i = 0; i < nim.length; i++){
+        if (param.equals(nim[i])){
+            return "Nama Praktikan : "+nama[i]+"("+nim[i]+")";
+        }
+    }
+        return null;
+    }
+    @Override
+    public String search(String param){
+        if (checkNama(param) !=null) return checkNama(param);
+        else if (checkNim(param)!=null) return checkNim(param);
+        return null;
+    }
 
 }

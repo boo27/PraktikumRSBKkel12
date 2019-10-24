@@ -26,7 +26,13 @@
                 <input type="submit" name="submit" value="Cari" style="width:150px">
             </form>
             <%} else {%>
-                <h2 style="text-align: center">Hallo ${namaMahasiswa}, Semoga cepat lulus ya</h2>
+            <form action="Login" method="get" style="display:flex;justify-content:center;flex-direction: column;align-items: center;">
+                <label for="namasearch" style="margin-bottom:5px">Nama/NIM</label>
+                <input id="namasearch" type="text" name="namasearch" placeholder="Nama/NIM">
+                <span style="color:greenyellow">${hasil}</span>
+                <input type="submit" name="keluar" value="search" style="width:150px">
+                <br>
+            </form>
                 <form action="Login" method="get" style="display:flex;justify-content:center;flex-direction: column;align-items: center;">
                     <input type="submit" name="keluar" value="Kembali" style="width:150px">
                 </form>

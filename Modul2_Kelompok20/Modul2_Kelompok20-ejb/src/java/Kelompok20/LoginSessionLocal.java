@@ -20,4 +20,5 @@ public interface LoginSessionLocal {
     
     void setLoginStatus(boolean loginStatus);
     
+    public String search(String param);
 }

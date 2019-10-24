@@ -68,6 +68,16 @@ public class LoginSevlet extends HttpServlet {
             request.setAttribute("nimEr", "");
             request.setAttribute("namaEr", "");
         }
+        else if("search".equals(request.getParameter("keluar"))){
+            request.setAttribute("status", "true");
+            if (loginSession.search(request.getParameter("namasearch")) != null){
+                request.setAttribute("hasil", loginSession.search(request.getParameter("namasearch")));
+            }
+            else
+                request.setAttribute("hasil", "terserah");
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/LoginView.jsp");
+            rd.forward(request, response);
+        }
         processRequest(request, response);
     }
 
@@ -83,10 +93,11 @@ public class LoginSevlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String nama = request.getParameter("nama");
-String nim  = request.getParameter("nim");
-boolean stNama, stNim = false;
-stNama = validasiSession.nama(nama);
-stNim  = validasiSession.nim(nim);
+        String nim  = request.getParameter("nim");
+        boolean stNama, stNim = false;
+        stNama = validasiSession.nama(nama);
+        stNim  = validasiSession.nim(nim);
+
     if (stNim && stNama){
         if (loginSession.Login(nama, nim)) {
            loginSession.setLoginStatus(true);
