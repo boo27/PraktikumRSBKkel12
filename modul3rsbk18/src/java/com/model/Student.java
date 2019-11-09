@@ -30,11 +30,14 @@ public class Student implements Serializable {
     @Column 
     private String firstName; 
     @Column 
-    private String lastName; 
-    public Student(int studentId, String firstName, String lastName) { 
+    private String lastName;
+    @Column
+    private String alamat;
+    public Student(int studentId, String firstName, String lastName, String alamat) { 
     this.studentId = studentId; 
     this.firstName = firstName; 
-    this.lastName = lastName; 
+    this.lastName = lastName;
+    this.alamat = alamat;
     } 
     public Student() { 
     } 
@@ -55,5 +58,11 @@ public class Student implements Serializable {
     } 
     public String getLastName() { 
     return lastName; 
+    }
+    public void setalamat(String alamat) { 
+    this.alamat = alamat; 
     } 
+    public String getalamat() { 
+    return alamat; 
+    }
 }

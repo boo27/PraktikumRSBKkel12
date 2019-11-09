@@ -34,7 +34,8 @@ public class StudentServlet extends HttpServlet {
     }
     String firstname = request.getParameter("firstname");
     String lastname = request.getParameter("lastname");
-    Student student = new Student(studentId, firstname, lastname);
+    String alamat= request.getParameter("alamat");
+    Student student = new Student(studentId, firstname, lastname, alamat);
     if("Add".equalsIgnoreCase(action)){
         studentDao.addStudent(student);
     }else if("Edit".equalsIgnoreCase(action)){
